@@ -11,12 +11,32 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * 关联到的数据表
+     *
+     * @var string
+     */
+    protected $table = "account";
+
+    /**
+     * 模型日期列的存储格式
+     *
+     * @var string
+     */
+    protected $dateFormat = 'Y-m-d H:i:s.u';
+
+    /**
+     * 时间戳
+     */
+    const CREATED_AT = 'created';
+    const UPDATED_AT = 'modified';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username',  'password','lastLogin',
     ];
 
     /**
