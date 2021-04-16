@@ -4,6 +4,22 @@
         background:rgba(255,255,255,0.5)!important;
     }
 </style>
+
+<script>
+    window.onload=function(){
+        jigsaw.init({
+        el: document.getElementById('jigsaw_id'),
+        width: 330, // 可选, 默认310
+        height: 155,
+        onSuccess:function(){
+            $("#submit-button").removeAttr("disabled");
+        }
+        })
+        $("#jigsaw_id").css({"margin":"1rem auto","left":"8.5%"})
+    }
+    
+</script>
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -65,9 +81,13 @@
                             </div>
                         </div>
 
+                        <div id="jigsaw_id">
+
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="submit-button" disabled="disabled">
                                     {{ __('注册') }}
                                 </button>
                             </div>

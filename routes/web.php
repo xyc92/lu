@@ -20,3 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', "Main@arr");
+
+Route::get('/recover',function(){
+    return view("recover.charactor");
+});
+
+Route::post('/recover/charactor',"RecoverController@charactor")->name('recover.charactor');

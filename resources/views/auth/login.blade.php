@@ -1,4 +1,23 @@
 @extends('layouts.app')
+<style>
+    .card{
+        background:rgba(255,255,255,0.5)!important;
+    }
+</style>
+<script>
+    window.onload=function(){
+        jigsaw.init({
+        el: document.getElementById('jigsaw_id'),
+        width: 330, // 可选, 默认310
+        height: 155,
+        onSuccess:function(){
+            $("#submit-button").removeAttr("disabled");
+        }
+        })
+        $("#jigsaw_id").css({"margin":"1rem auto","left":"8.5%"})
+    }
+    
+</script>
 
 @section('content')
 <div class="container">
@@ -52,6 +71,10 @@
                                 @enderror
                             </div>
                         </div>
+                        
+                        <div id="jigsaw_id">
+
+                        </div>
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
@@ -59,7 +82,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('记住我') }}
                                     </label>
                                 </div>
                             </div>
@@ -67,13 +90,13 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                <button type="submit" class="btn btn-primary" disabled="disabled" id="submit-button">
+                                    {{ __('登录') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('忘记密码？') }}
                                     </a>
                                 @endif
                             </div>
