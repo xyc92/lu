@@ -15,7 +15,7 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $table = "account";
+    protected $table = "Account";
 
     /**
      * 模型日期列的存储格式

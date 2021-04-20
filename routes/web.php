@@ -26,3 +26,5 @@ Route::get('/recover',function(){
 });
 
 Route::post('/recover/charactor',"RecoverController@charactor")->name('recover.charactor');
+
+Route::get('/init/password',"InitDatebase@password");

@@ -11,7 +11,7 @@ class RecoverController extends Controller
     //
     public function charactor(Request $request){
         $validateData = $request->validate([
-            'username' => 'exists:account',
+            'username' => 'exists:Account',
         ],[
             'username.exists' => '该用户名不存在'
         ]);
