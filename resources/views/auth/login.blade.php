@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <style>
     .card{
-        background:rgba(255,255,255,0.5)!important;
+        background:rgba(255,255,255,0.8)!important;
     }
 </style>
 <script>

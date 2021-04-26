@@ -28,3 +28,6 @@ Route::get('/recover',function(){
 Route::post('/recover/charactor',"RecoverController@charactor")->name('recover.charactor');
 
 Route::get('/init/password',"InitDatebase@password");
+
+Route::get('/rename',"Service\Rename@ShowPlayerList")->name('rename')->middleware('auth');
+Route::post('/rename/upload',"Service\Rename@RenamePlayer")->name('rename.upload')->middleware('auth');
