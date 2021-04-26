@@ -48,7 +48,7 @@ class LoginController extends Controller
     protected function authenticated($request, $user)
     {
         $this->updateUserInfo($request);
-        return redirect("/");
+        return back();
     }
 
     protected function updateUserInfo($request)

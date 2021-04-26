@@ -169,7 +169,7 @@
                             <label class="buttonenglish">{{$buttonMessage[1]['english']}}</label>
                         </div>
                     </div>
-                    <div class="row button-div">
+                    <div class="row button-div" onclick="window.location='rename'">
 
                         <div class="col-md-8">
                             <label for="{{$buttonMessage[2]['chinese']}}" class="buttonchinese">{{$buttonMessage[2]['chinese']}}</label>
