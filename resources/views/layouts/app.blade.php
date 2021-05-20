@@ -83,7 +83,14 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        
     </div>
+
+    <div style='display: flex;position: absolute;bottom: 0;'>
+            备案号：{{session('webInfo')[0]['internetNumber']}}
+    </div>
+
 </body>
 
 </html>

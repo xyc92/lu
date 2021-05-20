@@ -3,10 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\LogsInfo;
+use App\WebInfo;
+use App\DownloadInfo;
 
 class Main extends Controller
 {
     public function arr(){
+        if(!empty(session("downloadInfo"))){
+            $downloadinfo = session("downloadInfo");
+            $webinfo = session('webInfo');
+        }else{
+            $downloadinfo = DownloadInfo::all();
+            $webinfo = WebInfo::all();
+            session(['downloadInfo',$downloadinfo]);
+            session(['webInfo',$webinfo]);
+        }
+
         $mainArr = array(
             "img" => array("img/icon/7.png","img/icon/8.png","img/icon/10.png","img/icon/11.png",
                            "img/icon/6.png","img/icon/2.png","img/icon/3.png","img/icon/4.png",),
@@ -43,7 +56,9 @@ class Main extends Controller
                     "chinese" => "角色恢复",
                     "english" => ""
                 ),
-            )
+            ),
+            "webInfo" => $webinfo,
+            "downloadInfo" => $downloadinfo
         );
         return \view("main",$mainArr);
     }

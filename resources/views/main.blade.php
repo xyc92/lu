@@ -57,15 +57,15 @@
     }
 </style>
 <script>
-    window.onload=function(){
-        $("div[method]").on('click',function(){
+    window.onload = function() {
+        $("div[method]").on('click', function() {
             $(".backgroud-black-div").show();
             let method = $(this).attr("method");
             $(`.${method}`).show();
             console.log($(this).attr("method"));
         })
 
-        $(`.message-div span`).on("click",function(){
+        $(`.message-div span`).on("click", function() {
             $(".backgroud-black-div").hide();
             $(`.message-div`).hide();
         })
@@ -82,28 +82,18 @@
             <span style="float:right;cursor:pointer;" onclick="">关闭</span>
         </div>
 
+        @foreach($downloadInfo as $value)
         <div class="card-body">
-            <label for="">百度云下载(百度云可能会产生下载限速)：</label>
+            <label for="">{{$value['first']}}</label>
         </div>
         <div class="card-body">
-            <p>链接:</p>
-            <p>https://pan.baidu.com/s/1C9c-M5oI7rkDq1k8jCHfVg</p>
+            <p>{{$value['second']}}</p>
         </div>
         <div class="card-body">
-            <p>提取码:</p>
-            <p>h9n7</p>
+            <p>{{$value['third']}}</p>
         </div>
-        <div class="card-body">
-            <label for="">和彩云下载(和彩云网盘可能需要移动手机号码登录)：</label>
-        </div>
-        <div class="card-body">
-            <p>链接:</p>
-            <p>https://caiyun.139.com/m/i?0H5CgkEioTAfF</p>
-        </div>
-        <div class="card-body">
-            <p>提取码:</p>
-            <p>bef0</p>
-        </div>
+        @endforeach
+
     </div>
 </div>
 
@@ -114,7 +104,7 @@
             <span style="float:right;cursor:pointer;" onclick="">关闭</span>
         </div>
         <div class="card-body">
-            <p>qq：376700119</p>
+            <p>{{$webInfo[0]['contactInfo']}}</p>
         </div>
     </div>
 </div>
@@ -126,10 +116,7 @@
             <span style="float:right;cursor:pointer;" onclick="">关闭</span>
         </div>
         <div class="card-body">
-            <p>请将疑似玩家游戏名称及游戏截图【若有】发送至以下邮箱</p>
-            <p> azusa.nakano@foxmail.com</p>
-            <p>我们将在查看到邮件后立即给予您回复，如经查实将会对违规玩家禁封处理。</p>
-            <p>感谢您对游戏环境做出的热心贡献！</p>
+            <p>{{$webInfo[0]['reportInfo']}}</p>
         </div>
     </div>
 </div>

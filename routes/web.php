@@ -31,3 +31,6 @@ Route::get('/init/password',"InitDatebase@password");
 
 Route::get('/rename',"Service\Rename@ShowPlayerList")->name('rename')->middleware('auth');
 Route::post('/rename/upload',"Service\Rename@RenamePlayer")->name('rename.upload')->middleware('auth');
+
+Route::get('/admin',"Service\Admin@AdminView");
+Route::post('/admin/upload',"Service\Admin@AdminUpload")->name('admin.upload');
