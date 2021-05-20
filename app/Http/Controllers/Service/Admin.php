@@ -14,10 +14,10 @@ class Admin extends Controller
     //
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
     public function AdminView(){
-        // if(Auth::id() != 1)return redirect("/");
+        if(Auth::id() != 1)return redirect("/");
         if(empty(WebInfo::first())){
             $webinfo = new WebInfo();
             $webinfo->contactInfo = 'qq：376700119';
@@ -49,7 +49,7 @@ class Admin extends Controller
 
     public function AdminUpload(Request $request){
         // dd($request->session()->all());
-        // if(Auth::id() != 1)return redirect("/");
+        if(Auth::id() != 1)return redirect("/");
         $webinfo = WebInfo::find(1);
         $webinfo->contactInfo = $request->contact_info;
         $webinfo->reportInfo = $request->report_info;
